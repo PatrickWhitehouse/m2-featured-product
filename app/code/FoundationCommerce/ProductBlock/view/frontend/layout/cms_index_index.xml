@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<layout xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_layout.xsd">
+    <body>
+        <referenceContainer name="main">
+                <block name="featured.product" 
+                class="Magento\Framework\View\Element\Template"
+                template="FoundationCommerce_ProductBlock::featured-product.phtml"
+                before="-"
+                >
+                        <arguments>
+                                <argument name="view_model" xsi:type="object">FoundationCommerce\ProductBlock\ViewModel\Product</argument>
+                        </arguments>
+                </block>
+        </referenceContainer>
+    </body>
+</layout>
