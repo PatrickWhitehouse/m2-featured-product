@@ -5,6 +5,9 @@ declare(strict_types=1);
 namespace FoundationCommerce\ProductBlock\ViewModel;
 
 use Magento\Framework\View\Element\Block\ArgumentInterface;
+use Magento\Catalog\Api\ProductRepositoryInterface;
+use Magento\Framework\App\Config\ScopeConfigInterface;
+use Magento\Store\Model\ScopeInterface;
 
 class Product implements ArgumentInterface 
 {
@@ -13,8 +16,8 @@ class Product implements ArgumentInterface
         protected $scopeConfig;
         
         public function __construct(
-                \Magento\Catalog\Api\ProductRepositoryInterface $productRepository,
-                \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig
+                ProductRepositoryInterface $productRepository,
+                ScopeConfigInterface $scopeConfig
                 )
         { 
                $this->productRepository = $productRepository;
@@ -22,10 +25,10 @@ class Product implements ArgumentInterface
         }
 
         private function getSkuFromAdmin() {
-                $storeScope = \Magento\Store\Model\ScopeInterface::SCOPE_STORE;
+              
                 return $this->scopeConfig->getValue(
                         'section_featured_product/group_featured_product/featured_sku',
-                        $storeScope
+                        ScopeInterface::SCOPE_STORE
                 );
         }
 
@@ -35,8 +38,6 @@ class Product implements ArgumentInterface
                 $sku = $this->getSkuFromAdmin();
                 if($sku){
                          return $this->productRepository->get($this->getSkuFromAdmin());
-                } else {
-                        return; 
                 }
         }
 
