@@ -1,7 +1,8 @@
 & when (@media-common = true) {
 	.featured {
 		display: flex;
-		margin-block: 2rem;
+		flex-direction: column;
+		margin-block: @layout-indent__width;
 		padding: 2rem;
 		border: 1px solid #000;
 	}
@@ -12,7 +13,7 @@
 	}
 
 	.featured__name {
-		font-size: 2rem;
+		font-size: 2.5rem;
 		font-weight: 600;
 		color: @theme__color__primary;
 	}
@@ -29,7 +30,13 @@
 
 
 // Desktop specific styles
+
 .media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+
+	.featured {
+		flex-direction: row;
+	}
+
 	.featured__content {
 		padding-left: 2rem;
 	}
