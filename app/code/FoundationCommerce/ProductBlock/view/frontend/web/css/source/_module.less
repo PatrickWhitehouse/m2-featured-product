@@ -2,7 +2,35 @@
 	.featured {
 		display: flex;
 		margin-block: 2rem;
-		padding: 1rem 2rem;
+		padding: 2rem;
 		border: 1px solid #000;
+	}
+
+	.featured__price, .featured__name {
+		display: block;
+		margin-block: 1.75rem;
+	}
+
+	.featured__name {
+		font-size: 2rem;
+		font-weight: 600;
+		color: @theme__color__primary;
+	}
+
+	.featured__price {
+		font-size: 1.75rem;
+		color: @theme__color__primary-alt;
+	}
+
+	.featured__link {
+		.lib-button-primary();
+	}
+}
+
+
+// Desktop specific styles
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+	.featured__content {
+		padding-left: 2rem;
 	}
 }

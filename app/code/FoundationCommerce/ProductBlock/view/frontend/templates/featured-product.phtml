@@ -10,7 +10,7 @@ if($product){
         <div class="featured__content">
                 <span class="featured__name"><?= $product->getName(); ?></span>
                 <span class="featured__price">£<?= number_format($product->getData('price'),2); ?></span>
-                <p class="featured__desc"><?= $product->getData('description');?></p>
+                <div class="featured__desc"><?= $product->getData('description');?></div>
                 <a class="featured__link" href="/<?= $product->getData('url_key'); ?>">View Product &rsaquo;</a>
         </div>
 </div>
