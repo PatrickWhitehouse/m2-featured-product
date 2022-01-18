@@ -10,6 +10,7 @@ use Magento\Framework\App\Config\ScopeConfigInterface;
 use Magento\Store\Model\ScopeInterface;
 use Magento\Store\Model\StoreManagerInterface;
 use Magento\Directory\Model\CurrencyFactory;
+use \Magento\Framework\Exception\NoSuchEntityException;
 
 class Product implements ArgumentInterface 
 {
@@ -32,6 +33,8 @@ class Product implements ArgumentInterface
                $this->currencyCode = $currencyFactory->create();
         }
 
+        // Return sku passed into the admin field
+
         private function getSkuFromAdmin() 
         {
               
@@ -41,13 +44,24 @@ class Product implements ArgumentInterface
                 );
         }
 
+        // If SKU is present in the admin field, this returns the product data
+
         public function getProductDataUsingSku()
         {
                 $sku = $this->getSkuFromAdmin();
-                if($sku){
-                         return $this->productRepository->get($this->getSkuFromAdmin());
+                if(!$sku){
+                        return false;        
                 }
+
+                // Try catch incase sku is invalid and doesn't return a product
+                try {
+                        return $this->productRepository->get($this->getSkuFromAdmin());
+                    } catch(NoSuchEntityException $exception) {
+                        return false;
+                    }
         }
+
+        // Returns the store currency symbol, then echoed infront of the price
 
         public function getCurrencySymbol()
         {
