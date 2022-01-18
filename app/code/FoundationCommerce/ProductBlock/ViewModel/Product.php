@@ -32,14 +32,14 @@ class Product implements ArgumentInterface
                $this->currencyCode = $currencyFactory->create();
         }
 
-        private function getSkuFromAdmin() {
+        private function getSkuFromAdmin() 
+        {
               
                 return $this->scopeConfig->getValue(
                         'section_featured_product/group_featured_product/featured_sku',
                         ScopeInterface::SCOPE_STORE
                 );
         }
-
 
         public function getProductDataUsingSku()
         {
@@ -50,11 +50,11 @@ class Product implements ArgumentInterface
         }
 
         public function getCurrencySymbol()
-    {
-        $currentCurrency = $this->scopeConfigInterface->getStore()->getCurrentCurrencyCode();
-        $currency = $this->currencyCode->load($currentCurrency);
-        return $currency->getCurrencySymbol();
-    }
+        {
+                $currentCurrency = $this->scopeConfigInterface->getStore()->getCurrentCurrencyCode();
+                $currency = $this->currencyCode->load($currentCurrency);
+                return $currency->getCurrencySymbol();
+        }
 
 }
 
