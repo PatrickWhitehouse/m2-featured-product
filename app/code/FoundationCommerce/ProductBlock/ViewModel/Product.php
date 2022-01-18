@@ -56,9 +56,10 @@ class Product implements ArgumentInterface
                 // Try catch incase sku is invalid and doesn't return a product
                 try {
                         return $this->productRepository->get($this->getSkuFromAdmin());
-                    } catch(NoSuchEntityException $exception) {
+                } 
+                catch(NoSuchEntityException $exception) {
                         return false;
-                    }
+                }
         }
 
         // Returns the store currency symbol, then echoed infront of the price
