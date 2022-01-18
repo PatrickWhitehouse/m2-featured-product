@@ -1,5 +1,7 @@
 Clone repo into the root of your M2 project. (Ensure the path is correct)
 
+**Enable the module!**
+
 Run the usual M2 CLI commads, setup upgrade etc.
 
 Visit admin -> system configuration, there will be a new option on the left for "Featured Product". Here you can add your selected SKU.
