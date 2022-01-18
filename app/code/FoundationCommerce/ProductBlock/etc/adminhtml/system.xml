@@ -12,7 +12,7 @@
              <group id="group_featured_product" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
                  <label>Settings</label>
                  <attribute type="expanded">1</attribute>
-                 <field id="featured_sku" translate="label comment" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                 <field id="featured_product_sku" translate="label comment" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
                      <label>Product SKU</label>
                  </field>
              </group>

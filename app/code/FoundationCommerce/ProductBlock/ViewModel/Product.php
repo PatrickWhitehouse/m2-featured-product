@@ -39,7 +39,7 @@ class Product implements ArgumentInterface
         {
               
                 return $this->scopeConfig->getValue(
-                        'section_featured_product/group_featured_product/featured_sku',
+                        'section_featured_product/group_featured_product/featured_product_sku',
                         ScopeInterface::SCOPE_STORE
                 );
         }
